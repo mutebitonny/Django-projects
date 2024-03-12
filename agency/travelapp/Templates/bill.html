@@ -1,0 +1,18 @@
+{% extends 'home.html' %}
+{% block content %}
+<body background = "\static\travelapp\images\bg1.jpg">
+    <div class="agile-login">
+		<div class="wrapper">
+        <h3 style="color:chocolate">Booking sucessful. <br>Your booking information. </h3>
+        <h4 style="color:white">Username: {{ request.session.full_name }}</h4>
+        <h4 style="color:white">Location: {{ request.session.location }}</h4>
+        <h4 style="color:white">Destination: {{ request.session.destination }}</h4>
+        <h4 style="color:white">Date of Journey: {{ request.session.date }}</h4>
+        <h4 style="color:white">Total Amount: UGX {{ request.session.total_amount }}</h4>
+        <h3 style="color: chocolate">Thank you for using our services.<br>Please come again</h3>
+        </div>
+		<br>
+    </div>
+</body>
+
+{% endblock %}

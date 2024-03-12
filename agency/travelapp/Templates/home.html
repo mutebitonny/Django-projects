@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="{% static '/travelapp/css/style.css' %}"> 
+    <link rel="stylesheet" href="{% static '/travelapp/css/grid.css' %}"> 
+    <link rel="stylesheet" href="{% static '/travelapp/css/styles.css' %}"> 
+    <link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Raleway:400,500,600,700" rel="stylesheet"> 
+</head>
+<body style="background-color: #f5f5dc;>
+    <header >
+        <div class="navigation">
+            
+            <li><b><h3 style="color: white; font-family: algerian; font-size: 45px; padding: 15px; padding-left: 400px; background: rgba(0, 0, 0, 1);
+                height: 80px;">The R Travel Agency </h3></b></li>
+            {% comment %} <img style ="display: inline;" src="\static\travelapp\images\logo.png" alt="logo" width="100" height="100" position: relative;/> {% endcomment %}
+            
+            <ul class="menu" style="float: right; float: right; list-style: none; margin-right: 0px; position: relative;">
+
+                <li ><a href="/travelapp/home/" style="color: black; font-family: algerian;">Home</a></li>
+                <li ><a href="/travelapp/booking_packages/" style="color: black; font-family: algerian;">Packages</a></li>
+                
+                {% if request.user.is_authenticated %}
+                    <li><a href="/travelapp/logout/" style="color: black; font-family: algerian;">Logout</a></li>
+                    {% if request.session.temp != "abc" %}
+                        <li><a href="/travelapp/history/" style="color: black; font-family: algerian;">History</a> </li>
+                    {% else %}
+                        <li><a href="/travelapp/ticketbooking/" style="color: black; font-family: algerian;">Book</a></li>
+                        {% endif %}
+                {% else %}
+                    <li><a href="/travelapp/signup/" style="color: black; font-family: algerian;">SignUp</a></li>
+                {% endif %}
+                    
+                     <li><a href="/travelapp/login/" style="color: black; font-family: algerian;">Login</a></li>
+                     <li ><a href="/admin/" style="color: black; font-family: algerian;">Admin</a></li>
+            </ul>
+                {% if request.user.is_authenticated %}
+                     <br><h1 style="color: darkblue; align= centre; font-size: 25px; font-family: calibri; "> You're welcome, {{ request.session.full_name }}</h1>
+                {% else %}
+                    <br><h1 style="color: darkblue; align= centre; font-size: 25px; font-family: calibri; "> You're welcome.</h1>
+                {% endif %}
+                
+                
+        </div>
+    </header>
+    {% block content %}
+        
+        
+            <tr><h2 style="font-family: arial black; background-color: #7788;" align="centre">View different places</h2>
+                <td><h3 style="font-family: algerian; padding: 5px;" align="center"><b>Murchison Falls National GamePark</b></h3>
+                    <p style="color: grey; padding:3px">Murchison Falls National Park is Uganda’s most popular national park, receiving the highest annual number of visitors of any park in the country. Popular visitor activities include game drives, night drives, boat cruises to the delta and Murchison Falls waterfall, nature walks, bird watching and chimp tracking. Tourists visiting Murchison Falls National Park make a 5 hours 40 minutes drive from Kampala to reach the park. The park is also connected by daily domestic flights from Entebbe International Airport, to Kidepo Valley National Park and Queen Elizabeth National Park, which land at Pakuba Airstrip and Bugungu Airstrip. The park offers a range of tented camps and safari lodges to accommodate visitors.
+                        <a href="/travelapp/booking_packages/" style="color:blue; "><u>See available packages here</u></a>
+                    </p>
+                <img style ="display: inline;" src="\static\travelapp\images\murchisonfalls.jpg" alt="falls" width="400" padding="3px" height="350" position: relative;/>
+                <img style ="display: inline;" src="\static\travelapp\images\murchisonlions.jpg" alt="falls" width="400" padding="3px" height="350" position: relative;/>
+                <img style ="display: inline;" src="\static\travelapp\images\beautifulmurchisonhotel.jpg" alt="falls" width="350" padding="3px" height="350" position: relative;/></td>
+                
+                <td><h3 style="font-family: algerian; padding: 5px;" align="center"><b>Sipi Falls</b></h3>
+                    <p style="color: grey; padding:3px">Around Sipi Falls, visitors can partake in various activities such as; climbing Mount Elgon, hiking, bird watching, cave expeditions, cave painting excursions and camping. Hikes around the falls provide views of the Karamoja plains, Lake Kyoga, and the slopes of Mount Elgon. Individuals can organize trips through the Uganda Wildlife Authority or local private operators. The falls are surrounded by caves and footways that allow hiking and visitors to see vast banana and coffee plantations around the waterways and interact with the local communities of the Bagisu and Sabiny People.
+                        <a href="/travelapp/booking_packages/" style="color:blue; "><u>See available packages here</u></a>
+                    </p>
+                <img style ="display: inline;" src="\static\travelapp\images\sipitourists.jpg" alt="museum" width="400" padding="3px" height="350" position: relative;/>
+                <img style ="display: inline;" src="\static\travelapp\images\sipifallsuganda.jpg" alt="museum" width="400" padding="3px" height="350" position: relative;/>
+                <img style ="display: inline;" src="\static\travelapp\images\sipiresort.jpg" alt="museum" width="400"  padding="3px"height="350" position: relative;/></td>
+                
+                <td><h3 style="font-family: algerian; padding: 5px;" align="center"><b>Kidepo Valley National GamePark</b></h3>
+                    <p style="color: grey; padding:3px">The park receives comparatively fewer tourists than Uganda’s other national parks. Game viewing is possible by vehicle on dirt roads that crisscross the southern and western parts of the park, other activities include nature walks, Lonyii summit hike, guided night drives and bird watching. A few trunk roads are improved with murram and are passable in all weather. The park’s remote location means the drive time for tourists from Kampala is an estimated 10 hours. The park is also connected by domestic flights from Entebbe International Airport, which land at Kidepo Airport. Tourist accommodations at the park include a rest camp run by the Uganda Wildlife Authority and other lodges.
+                        <a href="/travelapp/booking_packages/" style="color:blue; "><u>See available packages here</u></a>
+                    </p>
+                    <img style ="display: inline;" src="\static\travelapp\images\mapofkidepo.jpg" alt="" width="400" padding="3px" height="350" position: relative;/>
+                <img style ="display: inline;" src="\static\travelapp\images\giraffe.jpg" alt="" width="400" padding="3px" height="350" position: relative;/>
+                <img style ="display: inline;" src="\static\travelapp\images\kidepolodge.jpg" alt="" width="400"  padding="3px"height="350" position: relative;/><td>
+                
+                    <td><h3 style="font-family: algerian; padding: 5px; " align="center"><b>Bwindi Impenetrable Forest</b></h3>
+                        <p style="color: grey; padding:3px">Tourists may visit the park any time during the year, although conditions in the park are more difficult during the rainy season. The park is in a remote location and the roads are in poor condition, the drive time from Kampala is estimated at 8 hours. The park is connected by domestic flights from Entebbe International Airport, which land at Kihihi Airstrip and Kisoro Airstrip. Tourist accommodations include a lodge, tented camps, and rooms run by the community located near the Buhoma entrance gate.
+
+                            Bwindi Community Hospital provides health care to 40,000 people in the area and to visiting tourists.
+                            
+                            Gorilla tracking is the park's main tourist attraction, and it generates much revenue for Uganda Wildlife Authority.Gorilla tracking first became available in April 1993, when tourists tracked the Mubare gorilla group. Tourists wishing to track gorillas must first obtain a permit. Selected gorillas families have been habituated to human presence, and the number of visitors is tightly controlled to prevent risks to the gorillas and degradation of the habitat. Several tour companies are able to reserve gorilla tracking permits for prospective visitors to Bwindi. The gorillas seldom react to tourists. There are strict rules for tourists to minimize the risk of disease transmission to the gorillas. Uganda, Rwanda, and the Democratic Republic of the Congo are the only countries where it is possible to visit mountain gorillas.  Guided walks through the forest include a walk to a waterfall, and walks for monkey watching and birding.
+                            <a href="/travelapp/booking_packages/" style="color:blue; "><u>See available packages here</u></a></p>
+                <img style ="display: inline;" src="\static\travelapp\images\forest.jpg" alt="" width="400" padding="3px" height="350" position: relative;/>
+                <img style ="display: inline;" src="\static\travelapp\images\gorilas.jpg" alt="" width="400" padding="3px" height="350" position: relative;/>
+                <img style ="display: inline;" src="\static\travelapp\images\silverbacklodge.jpg" alt="" width="400" padding="3px" height="350" position: relative;/></td>
+                
+                <td><h3 style="font-family: algerian; padding: 5px; "  align="center"><b>Queen Elizabeth National GamePark</b></h3>
+                    <p style="color: grey; padding:3px">Queen Elizabeth National Park is one of Uganda’s most popular tourist destinations, annually receiving one of the highest number of visitors of any of the country's national parks. Popular activities include chimp tracking in Kyambura Gorge, boat cruises, guided game drives including to view tree climbing lions in the Ishasha sector, night drives and nature walks. Visitors can also go on a lion experience with the Uganda Carnivore Program, with proceeds going toward carnivore conservation. Tourists visiting Queen Elizabeth National Park make a 7 hours 30 minutes drive from Kampala to reach the park. The park is also connected by daily domestic flights from Entebbe International Airport, which land at Mweya Airstrip, Kihihi Airstrip and Kasese Airstrip.
+                         Tourist accommodations at the park include a range of lodges and tented camps.
+                         <a href="/travelapp/booking_packages/" style="color:blue; "><u>See available packages here</u></a></p>
+                    <img style ="display: inline;" src="\static\travelapp\images\queenelizabeth.jpg" alt="" width="400"  padding="3px" height="350" position: relative;/>
+                    <img style ="display: inline;" src="\static\travelapp\images\queenelizabethelephant.jpg" alt="" width="400" padding="3px" height="350" position: relative;/>
+                    <img style ="display: inline;" src="\static\travelapp\images\mweyalodge.jpg" alt="" width="400" padding="3px" height="350" position: relative;/></td>
+            </tr>
+    
+
+    {% endblock %}
+    <h1 style=" font-family: Georgia; font-size: 30px; color: #dcdcdc ; background-color: #000;" align="center" ><p>
+        The R Travel Agency<br>
+        Booking Services  ||  Transportation Services  ||  Accomodation Services  ||  Catering Services<br>
+        Phone number: 0789099944  ||  Email: ragency@gmail.com<br>
+        Copyright &#169; 2022
+    </p></h1>
+    
+</body>
+</html>

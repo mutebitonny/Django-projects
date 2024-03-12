@@ -1,0 +1,67 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<body body background = "\static\travelapp\images\bg1.jpg">
+    <div class="agile-login">
+		<div class="wrapper">
+			<h2>Book your tour</h2>
+			<div class="w3ls-form" background-color: #7788>
+				<form action="/travelapp/addbooking/" method="post">{% csrf_token %}
+                <label>Booking id</label>
+                <input type="text" name="bookingid" value="{{ randomid }}"  readonly maxlength="6">
+                <label>From</label>
+                <select name="location">
+                    <option>Kampala</option>
+					<option>Jinja</option>
+                    <option>Kabale</option>
+                    <option>Gulu</option>
+                    <option>Lira</option>
+                    <option>Mbarara</option>
+                    <option>Fort Portal</option>
+                </select>
+                <label>To</label>
+                <select name="destination">
+                    <option>Murchison Falls National Gamepark</option>
+                    <option>Sipi Falls</option>
+                    <option>Kidepo Valley National GamePark</option>
+                    <option>Bwindi Impenetrable Forest</option>
+                    <option>Queen Elizabeth National GamePark</option>
+                </select>
+                <p style="color: red">{{ request.session.error3 }}</p>
+                <label>Package</label>
+                <select name="package">
+                {% for package in packages %}
+                    <option value='{{ package.packagename }}'>{{ package.packagename }}</option>
+
+                {% endfor %}
+                </select>
+
+                    <label>Departure date</label>
+                    <input id="datefield" type="date" name="date" onload="setMinDate()">
+                    <script>
+                        setMinDate();
+                        function setMinDate(){
+                            var today = new Date();
+                            var dd = today.getDate();
+                            var mm = today.getMonth()+1;
+                            var yyyy = today.getFullYear();
+                            if(dd<10){
+                                dd='0'+dd
+                            }
+                            if(mm<10){
+                                mm='0'+mm
+                            }
+                            today = yyyy+'-'+mm+'-'+dd;
+                            document.getElementById("datefield").setAttribute("min", today);
+                        }
+                    </script>
+                    <label>No of people</label>
+			    <input type="text" name="no_of_people" placeholder="" id="from" required>
+                <input type="submit" value="BOOK" />
+				</form>
+            </div>
+        </div>
+		<br>
+    </div>
+    </body>
+{% endblock %}

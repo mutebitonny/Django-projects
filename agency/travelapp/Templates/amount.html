@@ -1,0 +1,20 @@
+{% extends 'home.html' %}
+{% block content %}
+<body body background = "\static\travelapp\images\bg1.jpg">>
+    <label> <h1 style="color: chocolate" align="center">Amount to pay: UGX  {{ request.session.total_amount }}</h1></label>
+		<div class="wrapper" background-color ="#696969">
+			<div class="w3ls-form">
+				<form action="/travelapp/makepayment/" method="post">{% csrf_token %}
+                    <label>Select Payment mode</label>
+                    <select name="mode">
+                        <option>Mobile Money</option>
+                        <option>Mobile Banking</option>
+                    </select>
+                    <input type="submit" value="Confirm" />
+				</form>
+            </div>
+        </div>
+		<br>
+    </div>
+</body>
+{% endblock %}

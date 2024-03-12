@@ -1,0 +1,23 @@
+{% extends 'home.html' %}
+{% block content %}
+<body background = "\static\travelapp\images\bg1.jpg">
+<h2 style="color:cyan; padding-left: 500px;"> You are logged out! </h2>
+<div class="agile-login">
+		<div class="wrapper" >
+			<h2>Login</h2>
+			<div class="w3ls-form">
+				<form action="/travelapp/auth/" method="post">{% csrf_token %}
+					<label>Username</label>
+					<input type="text" name="username" placeholder="Username" required/>
+					<label>Password</label>
+					<input type="password" name="password" placeholder="Password" required />
+                    <input type="submit" value="Log In" />
+				<a href="/travelapp/signup/" class="pass" >Don't have account? SignUp</a>
+				</form>
+			</div>
+            <br><h3 style="color: orangered"> {{ error }}</h3>
+        </div>
+		<br>
+</div>
+</body>
+{% endblock %}

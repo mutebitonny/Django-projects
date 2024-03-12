@@ -1,0 +1,18 @@
+{% extends 'home.html' %}
+{% block content %}
+<body body background = "\static\travelapp\images\bg1.jpg">
+	<div class="agile-login">
+		<div class="wrapper">
+			<h2>Feedback Form</h2>
+			<div class="w3ls-form">
+				<form action="/travelapp/addfeedback/" method="post">{% csrf_token %}
+                    <label for ="addfeedback">Tell us about your tour</label><br>
+					<textarea id="addfeedback" name="addfeedback" rows ="6" cols="50">Enter text here...  </textarea>
+                    <input type="submit" value="Submit" />
+				</form>
+            </div>
+        </div>
+		<br>
+	</div>
+</body>
+ {% endblock %}

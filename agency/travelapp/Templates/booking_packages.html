@@ -1,0 +1,38 @@
+{%  extends 'home.html' %}
+{% load static %}
+{%block content%}
+<body background = "\static\travelapp\images\bg1.jpg">
+<div >
+    <u style="color:black"><h1 style="color: darkblue; align: center; margin-top: 5px; font-family: algerian;" align="center">Packages Available</h1></u>
+        <br>
+        <table border="2" style="color: #87cefa; background-color: black; font-family: algerian; opacity: 90%;" align="center">
+            <tr><th>Package Name</th><th>Amount</th></tr>
+            {% for package in packages %}
+                <tr><td>{{ package.packagename }}</td><td>{{ package.amount }}</td></tr>
+            {% endfor %}
+        </table>
+        <table border ="2" style="background: grey; margin:50px;">
+    <tr>
+        <td>Package name</td>
+        <td>Description</td>
+    </tr>
+
+    <tr>
+        <td>Ordinary Packages</td>
+        <td>These come only with transportation services and are based on tours that run for a day.</td>
+    </tr>
+
+    <tr>
+        <td>VIP Packages</td>
+        <td>These come with transportation and accomodation, and catering services for week.</td>
+    </tr>
+
+    <tr>
+        <td>VVIP Packages</td>
+        <td>These come only with transportation, accomodation  and catering services for up to three weeks.</td>
+    </tr>
+    </table>
+    </div>
+    <a href="/travelapp/ticketbooking/"><u style="color:seashell"><h1 style="color:Yellow" align="center">Book your tour</h1></u></a>
+</body>
+    {% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'home.html' %}
+{% block content %}
+
+<body body background = "\static\travelapp\images\bg1.jpg">
+    <div class="agile-login">
+		<div class="wrapper">
+         {% if request.session.mode == "Mobile Banking" %}
+                <h2>Mobile Banking</h2>
+			    <div class="w3ls-form">
+                <form action="/travelapp/bill/" method="post">{% csrf_token %}
+                    <label>Select bank</label>
+                    <select name="bank">
+                        <option>Cente Mobile</option>
+                        <option>Equi Duuka</option>
+                        <option>DFCU Bank</option>
+                        <option>Stanbic Bank</option>
+                        <option>ABSA Bank</option>
+                    </select>
+                     <label>Username</label>
+                     <input type="text" name="username" required>
+					 <label>password</label>
+                     <input type="password" name="password" required>
+                     <input type="submit" value="Pay now" />
+				</form>
+                </div>
+                {% else %}
+                {% if request.session.mode == "Mobile Money" %}
+			        <h2></h2>
+                {% else %}
+                    <h2>Mobile Money Information</h2>
+                {% endif %}
+             <div class="w3ls-form">
+				<form action="/travelapp/bill/" method="post">{% csrf_token %}
+                <label>Name</label>
+
+                <input type="text" name="name">
+					<label>Number</label>
+                <input type="text" name="cardno" placeholder="0777777777">
+                {% comment %} <label>Expiration</label>
+                <input type="month" name="expired_date">
+                <label>CVC number</label>
+                <input type="text" name="cvcno" placeholder="xxx" maxlength="3"> {% endcomment %}
+                <input type="submit" value="pay now" />
+                </form>
+             </div>
+         {% endif %}
+        </div>
+		<br>
+    </div>
+    </body>
+ {% endblock %}
+
