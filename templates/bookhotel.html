@@ -29,7 +29,7 @@
     {% for i in hotel %}
     <div class="hotel">
       <div class="container">
-        {% ifequal availability "available" %}
+        {% if availability == "available" %}
         <a class="ht" href='/userhotel/{{ i.hotel_name }}/{{ date }}/{{ roomreq }}'>
         <div class="row shadow-lg p-3 mt-5 mb-5 rounded">
           <div class="col-md-4 ">
@@ -53,8 +53,8 @@
         </div>
         <h1 class="fff">BOOK</h1>
         </a>
-        {% endifequal %}
-        {% ifequal availability "unavailable" %}
+        {% endif %}
+        {% if availability == "unavailable" %}
         <h1 class="fffu">BOOKED</h1>
         <div class="row shadow-lg p-3 mt-5 mb-5 rounded">
           <div class="col-md-4 ">
@@ -76,7 +76,7 @@
             </div>
           </div>
         </div>
-        {% endifequal %}
+        {% endif %}
       </div>
       </div>
 
